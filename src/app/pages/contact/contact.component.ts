@@ -9,7 +9,6 @@ interface ContactForm {
 
 @Component({
   selector: 'app-contact',
-  standalone: true,
   imports: [FormsModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',

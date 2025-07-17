@@ -16,7 +16,6 @@ import {MENU_LIST} from '@shared/entities/constants/menu-list.constants';
 
 @Component({
   selector: 'app-nav-bar',
-  standalone: true,
   imports: [RouterModule, TranslateModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.scss',
