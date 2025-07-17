@@ -3,30 +3,30 @@ import {IMenuList} from '../interfaces/menu-list.interface';
 export const MENU_LIST: IMenuList[] = [
   {
     name: 'Menu.Work',
-    path: '/work',
+    path: 'work',
     isOpen: false,
     children: [
       {
         name: 'Menu.Cases',
-        path: '/work/cases',
+        path: 'work/cases',
         icon: 'cases',
         desc: 'Improve customer retention with emails that are worth to open and read',
       },
       {
         name: 'Menu.Industries',
-        path: '/work/industries',
+        path: 'work/industries',
         icon: 'industries',
         desc: 'Improve customer retention with emails that are worth to open and read',
       },
       {
         name: 'Menu.Clients',
-        path: '/work/clients',
+        path: 'work/clients',
         icon: 'clients',
         desc: 'Improve customer retention with emails that are worth to open and read',
       },
       {
         name: 'Menu.Review',
-        path: '/work/review',
+        path: 'work/review',
         icon: 'review',
         desc: 'Improve customer retention with emails that are worth to open and read',
       },
@@ -34,65 +34,65 @@ export const MENU_LIST: IMenuList[] = [
   },
   {
     name: 'Menu.Services',
-    path: '/services',
+    path: 'services',
     children: [
       {
         name: 'Menu.SEO',
-        path: '/services/seo',
+        path: 'services/seo',
         icon: 'services/seo',
         desc: 'Our-Services.short-desc.SEO',
       },
       {
         name: 'Menu.PPC',
-        path: '/services/ppc',
+        path: 'services/ppc',
         icon: 'services/ppc',
         desc: 'Our-Services.short-desc.PPC',
       },
       {
         name: 'Menu.DisplayAds',
-        path: '/services/display',
+        path: 'services/display',
         icon: 'services/display',
         desc: 'Our-Services.short-desc.DisplayAds',
       },
       {
         name: 'Menu.EmailMarketing',
-        path: '/services/email',
+        path: 'services/email',
         icon: 'services/email',
         desc: 'Our-Services.short-desc.EmailMarketing',
       },
       {
         name: 'Menu.WebDev',
-        path: '/services/wed-dev',
+        path: 'services/wed-dev',
         icon: 'services/wed',
         desc: 'Our-Services.short-desc.WebDev',
       },
       {
         name: 'Menu.Analytics',
-        path: '/services/analytics',
+        path: 'services/analytics',
         icon: 'services/analytics',
         desc: 'Our-Services.short-desc.Analytics',
       },
       {
         name: 'Menu.SERM',
-        path: '/services/serm',
+        path: 'services/serm',
         icon: 'services/serm',
         desc: 'Our-Services.short-desc.SERM',
       },
       {
         name: 'Menu.Strategy',
-        path: '/services/strategy',
+        path: 'services/strategy',
         icon: 'services/strategy',
         desc: 'Our-Services.short-desc.Strategy',
       },
       {
         name: 'Menu.SMM',
-        path: '/services/smm',
+        path: 'services/smm',
         icon: 'services/smm',
         desc: 'Our-Services.short-desc.SMM',
       },
       {
         name: 'Menu.DesignCreative',
-        path: '/services/design-creative',
+        path: 'services/design-creative',
         icon: 'services/design-creative',
         desc: 'Our-Services.short-desc.DesignCreative',
       },
@@ -100,18 +100,18 @@ export const MENU_LIST: IMenuList[] = [
   },
   {
     name: 'Menu.Career',
-    path: '/career',
+    path: 'career',
   },
   {
     name: 'Menu.Blog',
-    path: '/blog',
+    path: 'blog',
   },
   {
     name: 'Menu.AboutUs',
-    path: '/about',
+    path: 'about',
   },
   {
     name: 'Menu.Contact',
-    path: '/contact',
+    path: 'contact',
   },
 ];

@@ -1,6 +1,6 @@
 import {Routes} from '@angular/router';
 
-export const routes: Routes = [
+const baseRoutes: Routes = [
   {
     path: '',
     loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent),
@@ -11,11 +11,19 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent),
     title: 'Contact',
   },
+];
+
+export const routes: Routes = [
+  // Default English routes (no prefix)
+  ...baseRoutes,
+
+  // Ukrainian routes (with /ua prefix)
   {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full',
+    path: 'ua',
+    children: [...baseRoutes],
   },
+
+  // Redirect to default language
   {
     path: '**',
     redirectTo: '',

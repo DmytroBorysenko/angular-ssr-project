@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@use './assets/styles/index' as *;
+@import './assets/styles/index';
 
 * {
   margin: 0;

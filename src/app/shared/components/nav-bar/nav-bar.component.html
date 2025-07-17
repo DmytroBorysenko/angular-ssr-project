@@ -1,14 +1,14 @@
 <div class="nav">
   <div class="nav-row">
-    <a href="/" class="logo"> .dgtl-house </a>
+    <a [href]="getLanguageAwareUrl('')" class="logo"> .dgtl-house </a>
     <nav class="nav-menu">
       <ul class="nav-menu-list">
         @for (navLink of MENU_LIST; track navLink.path) {
           <li class="nav-menu-item" [class.has-children]="navLink.children?.length">
             <a
               class="name"
-              [class.active]="navLink.path === currentUrl()"
-              [routerLink]="navLink.path"
+              [class.active]="isActive(navLink.path)"
+              [routerLink]="getLanguageAwareUrl(navLink.path)"
             >
               {{ navLink.name | translate }}
             </a>

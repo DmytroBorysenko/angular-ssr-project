@@ -15,5 +15,33 @@
     "save": "Save",
     "cancel": "Cancel",
     "submit": "Submit"
+  },
+  "Home": {
+    "Title": "Welcome to Angular SSR Project",
+    "Description": "This is a server-side rendered Angular application with internationalization support.",
+    "Features": {
+      "Title": "Features",
+      "AngularSSR": "Angular 19 SSR",
+      "Localization": "Localization support",
+      "Signals": "Signals for state management",
+      "Architecture": "Component-based architecture"
+    }
+  },
+  "Contact": {
+    "Title": "Contact Us",
+    "Description": "Feel free to reach out with any questions or feedback.",
+    "Form": {
+      "Name": "Name",
+      "NamePlaceholder": "Your name",
+      "Email": "Email",
+      "EmailPlaceholder": "Your email",
+      "Message": "Message",
+      "MessagePlaceholder": "Your message",
+      "Submit": "Send Message"
+    },
+    "Success": {
+      "Title": "Thank you for your message!",
+      "Message": "We will get back to you soon."
+    }
   }
 }

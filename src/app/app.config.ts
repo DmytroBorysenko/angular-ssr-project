@@ -1,9 +1,9 @@
-import {provideHttpClient, withFetch, HttpClient} from '@angular/common/http';
+import {HttpClient, provideHttpClient, withFetch} from '@angular/common/http';
 import {ApplicationConfig, importProvidersFrom, provideZoneChangeDetection} from '@angular/core';
 import {provideClientHydration} from '@angular/platform-browser';
 import {provideRouter} from '@angular/router';
 
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import {routes} from './app.routes';
@@ -21,7 +21,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     importProvidersFrom(
       TranslateModule.forRoot({
-        defaultLanguage: 'uk',
+        defaultLanguage: 'en',
         loader: {
           provide: TranslateLoader,
           useFactory: createTranslateLoader,

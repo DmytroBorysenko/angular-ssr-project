@@ -1,6 +1,8 @@
 import {Component, signal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
+import {TranslateModule} from '@ngx-translate/core';
+
 interface ContactForm {
   name: string;
   email: string;
@@ -9,7 +11,8 @@ interface ContactForm {
 
 @Component({
   selector: 'app-contact',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [FormsModule, TranslateModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })

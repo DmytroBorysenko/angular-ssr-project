@@ -1,48 +1,48 @@
 <div class="contact-container">
-  <h1>Contact Us</h1>
-  <p>Feel free to reach out with any questions or feedback.</p>
+  <h1>{{ 'Contact.Title' | translate }}</h1>
+  <p>{{ 'Contact.Description' | translate }}</p>
 
   @if (!formSubmitted()) {
     <div class="contact-form">
       <div class="form-group">
-        <label for="name">Name</label>
+        <label for="name">{{ 'Contact.Form.Name' | translate }}</label>
         <input
           type="text"
           id="name"
-          placeholder="Your name"
+          [placeholder]="'Contact.Form.NamePlaceholder' | translate"
           [value]="formData().name"
           (input)="updateName($event)"
         />
       </div>
 
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">{{ 'Contact.Form.Email' | translate }}</label>
         <input
           type="email"
           id="email"
-          placeholder="Your email"
+          [placeholder]="'Contact.Form.EmailPlaceholder' | translate"
           [value]="formData().email"
           (input)="updateEmail($event)"
         />
       </div>
 
       <div class="form-group">
-        <label for="message">Message</label>
+        <label for="message">{{ 'Contact.Form.Message' | translate }}</label>
         <textarea
           id="message"
           rows="5"
-          placeholder="Your message"
+          [placeholder]="'Contact.Form.MessagePlaceholder' | translate"
           [value]="formData().message"
           (input)="updateMessage($event)"
         ></textarea>
       </div>
 
-      <button type="submit" (click)="submitForm()">Send Message</button>
+      <button type="submit" (click)="submitForm()">{{ 'Contact.Form.Submit' | translate }}</button>
     </div>
   } @else {
     <div class="success-message">
-      <h2>Thank you for your message!</h2>
-      <p>We will get back to you soon.</p>
+      <h2>{{ 'Contact.Success.Title' | translate }}</h2>
+      <p>{{ 'Contact.Success.Message' | translate }}</p>
     </div>
   }
 </div>

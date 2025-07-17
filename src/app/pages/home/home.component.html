@@ -1,14 +1,14 @@
 <div class="home-container">
-  <h1>Welcome to Angular SSR Project</h1>
-  <p>This is a server-side rendered Angular application with internationalization support.</p>
+  <h1>{{ 'Home.Title' | translate }}</h1>
+  <p>{{ 'Home.Description' | translate }}</p>
 
   <section class="features">
-    <h2>Features</h2>
+    <h2>{{ 'Home.Features.Title' | translate }}</h2>
     <ul>
-      <li>Angular 18 SSR</li>
-      <li>Localization support</li>
-      <li>Signals for state management</li>
-      <li>Component-based architecture</li>
+      <li>{{ 'Home.Features.AngularSSR' | translate }}</li>
+      <li>{{ 'Home.Features.Localization' | translate }}</li>
+      <li>{{ 'Home.Features.Signals' | translate }}</li>
+      <li>{{ 'Home.Features.Architecture' | translate }}</li>
     </ul>
   </section>
 </div>
