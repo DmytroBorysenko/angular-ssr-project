@@ -1,0 +1,43 @@
+@import '@assets/fonts/OTF/stylesheet.scss';
+
+$primary: #048b94;
+$black: #020202;
+$grey: #424242;
+$grey-1: #7b7b7b;
+$grey-2: #bcbcbc;
+$white: #fff;
+$error: #ff6347;
+
+$font-family: 'Neue Montreal', sans-serif;
+$font-family-base: $font-family;
+$font-family-heading: $font-family;
+
+$font-weight-thin: 100;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$primary-color: $primary;
+$secondary-color: $grey;
+$background-color: $white;
+
+// $background-img: url('../assets/img/background.png');
+
+@mixin font-regular {
+  letter-spacing: 0.02em;
+  font-family: $font-family;
+  font-weight: $font-weight-regular;
+}
+
+@mixin font-normal {
+  letter-spacing: 0.02em;
+  font-family: $font-family;
+  font-weight: $font-weight-medium;
+}
+
+@mixin font-bold {
+  letter-spacing: 0.03em;
+  font-family: $font-family;
+  font-weight: $font-weight-bold;
+}

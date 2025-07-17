@@ -1,0 +1,45 @@
+<div class="nav">
+  <div class="nav-row">
+    <a href="/" class="logo"> .dgtl-house </a>
+    <nav class="nav-menu">
+      <ul class="nav-menu-list">
+        @for (navLink of MENU_LIST; track navLink.path) {
+          <li class="nav-menu-item" [class.has-children]="navLink.children?.length">
+            <a
+              class="name"
+              [class.active]="navLink.path === currentUrl()"
+              [routerLink]="navLink.path"
+            >
+              {{ navLink.name | translate }}
+            </a>
+            @if (navLink.children?.length) {
+              <img [class.rotated]="navLink.isOpen" src="./assets/icons/arrow.svg" alt="arrow" />
+
+              <div class="sub-menu-overlay">
+                <ul
+                  class="sub-menu"
+                  [class.multi-column]="navLink.children && navLink.children.length > 6"
+                >
+                  @for (child of navLink.children || []; track child.path) {
+                    <li class="sub-nav-item">
+                      <div class="info">
+                        <div class="title">
+                          <img
+                            class="icon"
+                            [src]="'./assets/img/svg/' + child.icon + '.svg'"
+                            alt="icon"
+                          />
+                          <span class="child-name">{{ child.name | translate }}</span>
+                        </div>
+                      </div>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+</div>
