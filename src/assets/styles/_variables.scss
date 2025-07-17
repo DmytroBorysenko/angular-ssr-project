@@ -1,4 +1,4 @@
-@import '@assets/fonts/OTF/stylesheet.scss';
+@use '@assets/fonts/OTF/stylesheet.scss' as *;
 
 $primary: #048b94;
 $black: #020202;

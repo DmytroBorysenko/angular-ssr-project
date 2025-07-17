@@ -1,5 +1,5 @@
 // Import font stylesheet
-@import '@assets/fonts/OTF/stylesheet.scss';
+@use '@assets/fonts/OTF/stylesheet.scss' as *;
 
 // Import variables
-@import './variables';
+@use './variables' as *;
