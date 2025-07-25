@@ -18,8 +18,8 @@ export class AppComponent implements OnInit {
   private router = inject(Router);
 
   constructor(private translate: TranslateService) {
-    // Налаштування мов
-    translate.addLangs(['en', 'uk']);
+    // Налаштування мов - Temporarily disabled Ukrainian
+    translate.addLangs(['en']); // , 'uk' - temporarily disabled
     translate.setDefaultLang('en');
 
     // Визначення мови з URL
@@ -34,36 +34,38 @@ export class AppComponent implements OnInit {
   }
 
   private detectLanguageFromUrl(): void {
-    const url = this.router.url;
+    // Temporarily disabled Ukrainian language detection
+    // const url = this.router.url;
+    // if (url.startsWith('/ua')) {
+    //   this.translate.use('uk');
+    // } else {
+    //   this.translate.use('en');
+    // }
 
-    if (url.startsWith('/ua')) {
-      this.translate.use('uk');
-    } else {
-      this.translate.use('en');
-    }
-
-    console.log('Current language set to:', this.translate.currentLang);
+    // Always use English for now
+    this.translate.use('en');
   }
 
   switchLanguage(lang: string): void {
     this.translate.use(lang);
 
-    // Оновлюємо URL відповідно до мови
-    const currentUrl = this.router.url;
-    let newUrl = currentUrl;
+    // Temporarily disabled Ukrainian language switching logic
+    // // Оновлюємо URL відповідно до мови
+    // const currentUrl = this.router.url;
+    // let newUrl = currentUrl;
 
-    if (lang === 'uk') {
-      // Переходимо на українську версію
-      if (!currentUrl.startsWith('/ua')) {
-        newUrl = '/ua' + currentUrl;
-      }
-    } else {
-      // Переходимо на англійську версію (без префікса)
-      if (currentUrl.startsWith('/ua')) {
-        newUrl = currentUrl.replace('/ua', '');
-      }
-    }
+    // if (lang === 'uk') {
+    //   // Переходимо на українську версію
+    //   if (!currentUrl.startsWith('/ua')) {
+    //     newUrl = '/ua' + currentUrl;
+    //   }
+    // } else {
+    //   // Переходимо на англійську версію (без префікса)
+    //   if (currentUrl.startsWith('/ua')) {
+    //     newUrl = currentUrl.replace('/ua', '');
+    //   }
+    // }
 
-    this.router.navigateByUrl(newUrl);
+    // this.router.navigateByUrl(newUrl);
   }
 }

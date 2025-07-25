@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, effect, inject, signal, Signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, signal, Signal} from '@angular/core';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {NavigationEnd, Router, RouterModule} from '@angular/router';
 
@@ -30,10 +30,6 @@ export class NavBarComponent {
         map(() => this.router?.url || 'home'),
       ),
     );
-
-    effect(() => {
-      console.log(this.currentUrl());
-    });
   }
 
   public toggleMenu(): void {
@@ -43,15 +39,16 @@ export class NavBarComponent {
 
   // Метод для генерації URL з урахуванням мови
   protected getLanguageAwareUrl(path: string): string {
-    const currentLang = this.translate.currentLang;
+    // const currentLang = this.translate.currentLang;
 
     // Видаляємо потенційний префікс `/ua` на випадок, якщо path уже має його
     const cleanedPath = path.replace(/^\/?(ua\/)?/, '');
 
-    // Якщо мова українська, додаємо префікс /ua
-    if (currentLang === 'uk') {
-      return `/ua/${cleanedPath}`;
-    }
+    // Temporarily disabled Ukrainian language logic
+    // // Якщо мова українська, додаємо префікс /ua
+    // if (currentLang === 'uk') {
+    //   return `/ua/${cleanedPath}`;
+    // }
 
     // Інакше (англійська за замовчуванням)
     return `/${cleanedPath}`;
@@ -62,15 +59,18 @@ export class NavBarComponent {
     const currentUrl = this.currentUrl();
     if (!currentUrl) return false;
 
-    const currentLang = this.translate.currentLang;
+    // const currentLang = this.translate.currentLang;
 
     // Очищаємо path від потенційних префіксів
     const cleanedPath = path.replace(/^\/?(ua\/)?/, '');
 
-    if (currentLang === 'uk') {
-      return currentUrl === `/ua/${cleanedPath}` || currentUrl === `/ua/${cleanedPath}/`;
-    } else {
-      return currentUrl === `/${cleanedPath}` || currentUrl === `/${cleanedPath}/`;
-    }
+    // Temporarily disabled Ukrainian language logic
+    // if (currentLang === 'uk') {
+    //   return currentUrl === `/ua/${cleanedPath}` || currentUrl === `/ua/${cleanedPath}/`;
+    // } else {
+    //   return currentUrl === `/${cleanedPath}` || currentUrl === `/${cleanedPath}/`;
+    // }
+
+    return currentUrl === `/${cleanedPath}` || currentUrl === `/${cleanedPath}/`;
   }
 }

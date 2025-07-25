@@ -17,11 +17,11 @@ export const routes: Routes = [
   // Default English routes (no prefix)
   ...baseRoutes,
 
-  // Ukrainian routes (with /ua prefix)
-  {
-    path: 'ua',
-    children: [...baseRoutes],
-  },
+  // Ukrainian routes (with /ua prefix) - Temporarily disabled
+  // {
+  //   path: 'ua',
+  //   children: [...baseRoutes],
+  // },
 
   // Redirect to default language
   {

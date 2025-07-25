@@ -9,7 +9,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {routes} from './app.routes';
 
 // Factory function for TranslateHttpLoader
-export function createTranslateLoader(http: HttpClient) {
+export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 

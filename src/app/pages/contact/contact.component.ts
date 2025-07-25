@@ -41,7 +41,7 @@ export class ContactComponent {
   }
 
   submitForm(): void {
-    console.log('Form submitted with values:', this.formData());
+    // console.log('Form submitted with values:', this.formData());
     this.formSubmitted.set(true);
 
     // Reset form after submission
