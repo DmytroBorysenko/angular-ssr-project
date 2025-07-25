@@ -60,7 +60,7 @@
             ],
             "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": ["src", "src/assets", "src/assets/styles", "./src/assets/styles"]
+              "includePaths": ["src/assets"]
             },
             "scripts": [],
             "server": "src/main.server.ts",
@@ -113,7 +113,7 @@
           "options": {
             "browserTarget": "angular-ssr-project:build:production",
             "serverTarget": "angular-ssr-project:server:production",
-            "routes": ["/", "/contact", "/ua", "/ua/contact"]
+            "routes": ["/", "/contact"]
           }
         },
         "test": {
@@ -135,7 +135,7 @@
             ],
             "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/styles", "src/assets/styles"]
+              "includePaths": ["src/assets"]
             },
             "scripts": []
           }
