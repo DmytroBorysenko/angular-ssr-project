@@ -80,7 +80,7 @@ body {
 
 // Глобальний контейнер для обмеження ширини
 .app-container {
-  max-width: 1440px;
+  max-width: $base-screen-width;
   margin: 0 auto;
   width: 100%;
   position: relative;
@@ -88,7 +88,7 @@ body {
 }
 
 // Медіа-запити для адаптивності
-@media (max-width: 1440px) {
+@media (max-width: $base-screen-width) {
   .app-container {
     margin: 0 16px; // Додає відступи на менших екранах
   }

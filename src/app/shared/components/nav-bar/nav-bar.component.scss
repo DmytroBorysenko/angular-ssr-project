@@ -2,18 +2,18 @@
 
 .nav {
   width: 100%;
-  max-width: 1440px;
+  max-width: $base-screen-width;
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  padding: 24px 32px;
+  padding: scale(24) scale(32);
   background-color: $black;
   z-index: 99;
   transition: all 0.5s ease-in-out;
   &.transparent {
     background-color: rgba($black, 0.9);
-    padding: 18px 32px;
+    padding: scale(18) scale(32);
   }
   .nav-row {
     display: flex;
@@ -21,38 +21,38 @@
     align-items: center;
     width: 100%;
     .logo {
-      font-size: 21px;
-      line-height: 31.5px;
+      font-size: scale(21);
+      line-height: 150%;
       color: $white;
     }
     .nav-menu-list {
       display: flex;
-      gap: 24px;
+      gap: scale(24);
       align-items: center;
       border: 1px solid $grey;
       border-radius: 100px;
-      padding: 6px 6px 6px 24px;
+      padding: scale(6) scale(6) scale(6) scale(24);
       position: relative;
       .nav-menu-item {
         a.name {
           color: $white;
-          font-size: 24px;
-          line-height: 36px;
+          font-size: scale(24);
+          line-height: 150%;
 
           &:hover {
-            padding-bottom: 2px;
-            border-bottom: 2px solid $white;
+            padding-bottom: scale(2);
+            border-bottom: scale(2) solid $white;
           }
           &.active {
-            padding-bottom: 2px;
-            border-bottom: 2px solid $white;
+            padding-bottom: scale(2);
+            border-bottom: scale(2) solid $white;
           }
         }
 
         img {
           transition: transform 0.3s ease;
-          width: 9px;
-          margin: 0 0 4px 5px;
+          width: scale(9);
+          margin: 0 0 scale(4) scale(5);
           &.rotated {
             transform: rotate(-180deg);
           }
@@ -60,7 +60,7 @@
 
         &.has-children {
           a {
-            padding-bottom: 10px;
+            padding-bottom: scale(10);
           }
 
           &:hover {
@@ -73,7 +73,7 @@
         &:last-child {
           background-color: $primary;
           border-radius: 100px;
-          padding: 10px 24px;
+          padding: scale(10) scale(24);
         }
       }
 
@@ -81,24 +81,24 @@
         position: absolute;
         left: 0;
         display: none;
-        top: 50px;
+        top: scale(50);
         background-color: transparent;
       }
       .sub-menu {
-        margin-top: 30px;
-        padding: 4px 16px;
+        margin-top: scale(30);
+        padding: scale(4) scale(16);
         background-color: #292c32;
-        width: 378px;
-        border-radius: 24px;
-        box-shadow: 0 4px 12px 0 #1c2d400f;
+        width: scale(378);
+        border-radius: scale(24);
+        box-shadow: 0 scale(4) scale(12) 0 #1c2d400f;
 
         .sub-nav-item {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 4px;
+          gap: scale(4);
           border-bottom: 1px solid #353840;
-          padding: 12px 4px 12px 0;
+          padding: scale(12) scale(4) scale(12) 0;
           cursor: pointer;
 
           &:last-child {
@@ -108,21 +108,21 @@
           .info {
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            max-width: 300px;
+            gap: scale(4);
+            max-width: scale(300);
             .title {
               display: flex;
               align-items: center;
-              gap: 6px;
+              gap: scale(6);
 
               .icon {
                 margin: 0;
-                width: 16px;
+                width: scale(16);
               }
               span.child-name {
                 color: $white;
-                font-size: 16px;
-                line-height: 22px;
+                font-size: scale(16);
+                line-height: 120%;
                 padding: 0;
 
                 &:hover {
@@ -136,21 +136,21 @@
 
             .desc {
               color: #c8c8c8;
-              font-size: 12px;
-              line-height: 16px;
-              margin-left: 21px;
+              font-size: scale(12);
+              line-height: 120%;
+              margin-left: scale(21);
             }
           }
           .arrow {
-            height: 20px;
+            height: scale(20);
             margin: 0;
           }
         }
         &.multi-column {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 12px 24px;
-          width: 784px;
+          gap: scale(12) scale(24);
+          width: scale(784);
         }
       }
     }
