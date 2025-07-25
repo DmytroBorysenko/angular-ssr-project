@@ -16,7 +16,6 @@ body {
 body {
   font-family: $font-family;
   background-color: $black;
-  max-width: 1440px;
   margin: 0 auto;
   p {
     margin-bottom: 0;
@@ -76,5 +75,27 @@ body {
 
   .bold {
     @include font-bold;
+  }
+}
+
+// Глобальний контейнер для обмеження ширини
+.app-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden; // Запобігає горизонтальному скролу
+}
+
+// Медіа-запити для адаптивності
+@media (max-width: 1440px) {
+  .app-container {
+    margin: 0 16px; // Додає відступи на менших екранах
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    margin: 0 8px; // Менші відступи на мобільних
   }
 }
