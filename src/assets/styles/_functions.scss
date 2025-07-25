@@ -1,4 +1,3 @@
-// Функції для автоматичного масштабування
-@function scale($size) {
-  @return min(calc(#{$size}px * (100vw / #{$base-screen-width})), #{$size}px);
+@function rem($px) {
+  @return #{$px / 16}rem;
 }

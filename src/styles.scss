@@ -13,6 +13,17 @@ body {
   height: 100%;
 }
 
+html {
+  font-size: 16px; // 1440+
+
+  @media (max-width: 1358px) {
+    font-size: 15px;
+  }
+  @media (max-width: 1280px) {
+    font-size: 14px;
+  }
+}
+
 body {
   font-family: $font-family;
   background-color: $black;
@@ -49,8 +60,8 @@ body {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     border: 1px solid #353840;
     border-radius: 4px;
     cursor: pointer;
@@ -75,27 +86,5 @@ body {
 
   .bold {
     @include font-bold;
-  }
-}
-
-// Глобальний контейнер для обмеження ширини
-.app-container {
-  max-width: $base-screen-width;
-  margin: 0 auto;
-  width: 100%;
-  position: relative;
-  overflow-x: hidden; // Запобігає горизонтальному скролу
-}
-
-// Медіа-запити для адаптивності
-@media (max-width: $base-screen-width) {
-  .app-container {
-    margin: 0 16px; // Додає відступи на менших екранах
-  }
-}
-
-@media (max-width: 768px) {
-  .app-container {
-    margin: 0 8px; // Менші відступи на мобільних
   }
 }

@@ -1,47 +1,54 @@
 {
-  "app": {
-    "title": "Angular SSR Project",
-    "welcome": "Welcome to our application",
-    "language": "Language"
+  "Menu": {
+    "Home": "Home",
+    "Services": "Services",
+    "AboutUs": "About us",
+    "Blog": "Blog",
+    "Contact": "Contact",
+    "Career": "Career",
+    "Work": "Work",
+    "Cases": "Cases",
+    "HouseTools": "House Tools",
+    "Industries": "Industries",
+    "Clients": "Clients",
+    "Review": "Review",
+    "SEO": "SEO",
+    "PPC": "PPC",
+    "DisplayAds": "Display Ads",
+    "EmailMarketing": "Email marketing",
+    "WebDev": "Web Development",
+    "Analytics": "Web Analytics",
+    "SERM": "SERM",
+    "Strategy": "Strategy",
+    "SMM": "SMM",
+    "DesignCreative": "Design & Creative"
   },
-  "nav": {
-    "home": "Home",
-    "about": "About",
-    "contact": "Contact"
-  },
-  "common": {
-    "loading": "Loading...",
-    "error": "Error occurred",
-    "save": "Save",
-    "cancel": "Cancel",
-    "submit": "Submit"
-  },
-  "Home": {
-    "Title": "Welcome to Angular SSR Project",
-    "Description": "This is a server-side rendered Angular application with internationalization support.",
-    "Features": {
-      "Title": "Features",
-      "AngularSSR": "Angular 19 SSR",
-      "Localization": "Localization support",
-      "Signals": "Signals for state management",
-      "Architecture": "Component-based architecture"
-    }
-  },
-  "Contact": {
-    "Title": "Contact Us",
-    "Description": "Feel free to reach out with any questions or feedback.",
-    "Form": {
-      "Name": "Name",
-      "NamePlaceholder": "Your name",
-      "Email": "Email",
-      "EmailPlaceholder": "Your email",
-      "Message": "Message",
-      "MessagePlaceholder": "Your message",
-      "Submit": "Send Message"
+  "Our-Services": {
+    "desc": {
+      "SEO": "Increase revenue and traffic from organic search. We make your website easy to find when potential customers are searching to learn or buy.",
+      "PPC": "Drive traffic and boost sales with expertly managed pay-per-click (PPC) campaigns across platforms like Google, Meta, Bing, and more.",
+      "DisplayAds": "Boost brand awareness by reaching your target audience with banners and videos across multiple platforms.",
+      "EmailMarketing": "Enhance retention and maximize your marketing ROI with email campaigns that build stronger connections with your customers.",
+      "WebDev": "Create websites and single landing pages optimized for SEO, fast-loading for users, and designed to maximize conversion rates (CR%).",
+      "Analytics": "We deliver comprehensive reports for complete control and data-driven decision-making, leveraging tools like Looker Studio, Power BI, Google Analytics, and more.",
+      "SERM": "Build and maintain a strong brand reputation across Google SERPs by managing customer feedback and online presence.",
+      "Strategy": "We create and launch digital growth strategies tailored to your business, using our expertise, market insights, and innovative ideas.",
+      "SMM": "Build brand loyalty by interacting with your audience across social media channels.",
+      "DesignCreative": "Make your product stand out with stunning visuals and creative designs that your customers will love."
     },
-    "Success": {
-      "Title": "Thank you for your message!",
-      "Message": "We will get back to you soon."
-    }
+    "short-desc": {
+      "SEO": "Drive more traffic with a website that’s easy to find and ranks higher",
+      "PPC": "Get instant leads with ads that attract clicks and maximize ROI",
+      "DisplayAds": "Boost brand awareness with eye-catching banners and videos",
+      "EmailMarketing": "Improve customer retention with emails that are worth opening and reading",
+      "WebDev": "Build fast, SEO-friendly websites that keep users engaged and converting",
+      "Analytics": "Turn data into growth with reports that reveal what really works",
+      "SERM": "Strengthen your brand’s reputation with smart review and search management",
+      "Strategy": "Get a winning growth plan tailored to your business goals",
+      "SMM": "Grow your audience with social media content that sparks engagement",
+      "DesignCreative": "Make your brand stand out with visuals that leave a lasting impact"
+    },
+    "title": "All you need in one place",
+    "describe": "We provide digital marketing quality you need on every stage of the funnel to ensure your customers with a perfect user experience on their way to a target action."
   }
 }
