@@ -115,3 +115,18 @@ export const MENU_LIST: IMenuList[] = [
     path: 'contact',
   },
 ];
+
+export const MENU_ACTIVE_PAGE_MAP = {
+  '/': 'Home',
+  '/career': 'Career',
+  '/vacancy': 'Career',
+  '/vacancy-join-team': 'Career',
+  '/blog': 'Blog',
+  '/post': 'Blog',
+  '/work': 'Work',
+  '/cases': 'Work',
+  '/house-tools': 'Work',
+  '/author': 'Blog',
+  '/about': 'AboutUs',
+  '/contact': 'Contact',
+};

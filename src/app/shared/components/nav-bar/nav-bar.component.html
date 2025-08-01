@@ -27,7 +27,7 @@
                         <div class="title">
                           <img
                             class="icon"
-                            [src]="'./assets/img/svg/' + child.icon + '.svg'"
+                            [src]="'./assets/icons/svg/' + child.icon + '.svg'"
                             alt="icon"
                           />
                           <span class="child-name">{{ child.name | translate }}</span>
@@ -47,3 +47,66 @@
 </div>
 
 <!-- mobile -->
+<div class="mobile-nav">
+  <div class="mobile-nav-row">
+    <a href="/" class="logo"> .dgtl-house </a>
+    <div class="mobile-menu">
+      <img src="./assets/icons/svg/burger-menu.svg" alt="burger-menu" (click)="toggleMenu()" />
+      <a [href]="currentUrl()" class="active-link">{{ 'Menu.' + activePage() | translate }}</a>
+      <a [href]="currentUrl() === '/contact' ? '/' : '/contact'" class="link">{{
+        'Menu.' + (activePage() === 'Contact' ? 'Home' : 'Contact') | translate
+      }}</a>
+      <div [style.display]="isOpen() ? 'block' : 'none'" class="nav-list">
+        <div class="nav-list-header">
+          <a href="/" class="logo">.dgtl-house</a>
+          <div class="close-menu" (click)="toggleMenu()">
+            <img ngSrc="./assets/icons/svg/cross.svg" alt="cross" />
+          </div>
+        </div>
+        <ul>
+          @for (navLink of MENU_LIST; track $index) {
+            <li>
+              <div class="d-flex">
+                <a class="name" [routerLink]="navLink.path" (click)="toggleMenu()">{{
+                  navLink.name | translate
+                }}</a>
+                @if (navLink.children?.length) {
+                  <img
+                    [ngClass]="{rotated: navLink.isOpen}"
+                    src="./assets/icons/svg/arrow.svg"
+                    alt="arrow"
+                    (click)="toggleSubMenu(navLink, !navLink.isOpen)"
+                  />
+                }
+              </div>
+              @if (navLink.isOpen) {
+                <ul class="mobile-sub-menu">
+                  @for (child of navLink.children; track $index) {
+                    <li class="sub-nav-item">
+                      <div class="info">
+                        <div class="title">
+                          <img
+                            class="icon"
+                            [src]="'./assets/icons/svg/' + child.icon + '.svg'"
+                            alt="icon"
+                          />
+                          <a class="child-name" [routerLink]="child.path" (click)="toggleMenu()">{{
+                            child.name | translate
+                          }}</a>
+                        </div>
+                        <div class="desc">{{ child.desc | translate }}</div>
+                      </div>
+                      <a [routerLink]="child.path" (click)="toggleMenu()">
+                        <img class="arrow" src="./assets/icons/svg/arrow.svg" alt="arrow" />
+                      </a>
+                    </li>
+                  }
+                </ul>
+              }
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

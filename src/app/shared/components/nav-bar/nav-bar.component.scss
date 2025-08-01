@@ -2,7 +2,7 @@
 
 .nav {
   width: 100%;
-  max-width: rem(1440);
+  max-width: 1440px;
   position: fixed;
   top: 0;
   left: 50%;
@@ -151,6 +151,201 @@
           grid-template-columns: repeat(2, 1fr);
           gap: $gap-3 $gap-5;
           // width: rem(784);
+        }
+      }
+    }
+  }
+}
+
+// Мобільне меню
+.mobile-nav {
+  display: none;
+}
+
+// Медіа-запити для мобільних пристроїв
+@media (max-width: 480px) {
+  .nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+    padding: rem(18) rem(16);
+
+    &.transparent {
+      padding: rem(12) rem(16);
+    }
+
+    .mobile-nav-row {
+      .mobile-menu {
+        display: flex;
+        align-items: center;
+        gap: rem(12);
+        border: 1px solid $grey;
+        border-radius: 100px;
+        padding: rem(3) rem(3) rem(3) rem(23);
+
+        .active-link {
+          color: $white;
+          @include font-normal;
+          font-size: rem(16);
+          line-height: 150%;
+          border-bottom: 1px solid $white;
+        }
+
+        .link {
+          color: $white;
+          @include font-normal;
+          font-size: rem(16);
+          line-height: 150%;
+          padding: rem(10) rem(24);
+          background-color: $primary;
+          border-radius: 100px;
+        }
+
+        .nav-list {
+          position: fixed;
+          top: rem(15);
+          right: 0;
+          bottom: 0;
+          background: $black;
+          width: 100%;
+          padding: rem(35) rem(16);
+          border: none;
+          border-radius: 0;
+          overflow: auto;
+          height: 100vh;
+
+          .nav-list-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .close-menu {
+              display: flex;
+              padding: rem(15) rem(29);
+              background-color: $primary;
+              border-radius: 100px;
+            }
+          }
+
+          ul {
+            margin-top: rem(45);
+
+            li {
+              margin-bottom: rem(8);
+              display: flex;
+              justify-content: center;
+              flex-direction: column;
+
+              & .d-flex {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+              }
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+
+              .hidden {
+                display: none;
+              }
+
+              a.name {
+                text-decoration: none;
+                color: $white;
+                @include font-regular;
+                font-size: rem(32);
+                line-height: 150%;
+              }
+
+              .mobile-sub-menu {
+                margin-top: rem(10);
+                border-top: 1px solid $white;
+                width: 100%;
+
+                .sub-nav-item {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  gap: rem(6);
+                  border-bottom: 1px solid #353840;
+                  padding: rem(12) 0;
+
+                  &:last-child {
+                    border-bottom: none;
+                  }
+
+                  .info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: rem(4);
+
+                    .title {
+                      display: flex;
+                      align-items: center;
+                      gap: rem(4);
+
+                      .icon {
+                        margin: 0;
+                        width: rem(16);
+                      }
+
+                      a.child-name {
+                        color: $white;
+                        @include font-regular;
+                        font-size: rem(16);
+                        line-height: 137.5%;
+                        padding: 0;
+
+                        &:hover {
+                          border: none;
+                        }
+                        &.active {
+                          border: none;
+                        }
+                      }
+                    }
+
+                    .desc {
+                      color: #c8c8c8;
+                      @include font-regular;
+                      font-size: rem(12);
+                      line-height: 133.33%;
+                      margin-left: rem(28);
+                    }
+                  }
+
+                  .arrow {
+                    transform: rotate(-90deg);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .nav {
+    .nav-row {
+      .logo {
+        font-size: rem(19);
+        line-height: 136.84%;
+      }
+
+      .mobile-menu {
+        .active-link {
+          font-size: rem(15);
+          line-height: 140%;
+        }
+
+        .link {
+          font-size: rem(15);
+          line-height: 140%;
         }
       }
     }
