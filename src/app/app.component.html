@@ -1,4 +1,12 @@
 <div class="app-container">
   <app-nav-bar></app-nav-bar>
-  <router-outlet></router-outlet>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Test i18n -->
+  <div style="padding: 20px; text-align: center">
+    <h2 i18n="@@app.welcome">Welcome to our application!</h2>
+    <p i18n="@@app.description">This is a test of Angular built-in i18n with SSR.</p>
+  </div>
 </div>

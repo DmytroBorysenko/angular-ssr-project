@@ -1,14 +1,16 @@
 <div class="home-container">
-  <h1>{{ 'Home.Title' | translate }}</h1>
-  <p>{{ 'Home.Description' | translate }}</p>
+  <h1 i18n="@@home.title">Welcome to Angular SSR Project</h1>
+  <p i18n="@@home.description">
+    This is a server-rendered Angular application with internationalization support.
+  </p>
 
   <section class="features">
-    <h2>{{ 'Home.Features.Title' | translate }}</h2>
+    <h2 i18n="@@home.features.title">Features</h2>
     <ul>
-      <li>{{ 'Home.Features.AngularSSR' | translate }}</li>
-      <li>{{ 'Home.Features.Localization' | translate }}</li>
-      <li>{{ 'Home.Features.Signals' | translate }}</li>
-      <li>{{ 'Home.Features.Architecture' | translate }}</li>
+      <li i18n="@@home.features.angularSSR">Angular 19 SSR</li>
+      <li i18n="@@home.features.localization">Localization support</li>
+      <li i18n="@@home.features.signals">Signals for state management</li>
+      <li i18n="@@home.features.architecture">Component architecture</li>
     </ul>
   </section>
 </div>

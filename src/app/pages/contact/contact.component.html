@@ -1,48 +1,53 @@
 <div class="contact-container">
-  <h1>{{ 'Contact.Title' | translate }}</h1>
-  <p>{{ 'Contact.Description' | translate }}</p>
+  <h1 i18n="@@contact.title">Contact Us</h1>
+  <p i18n="@@contact.description">Feel free to reach out with any questions or feedback.</p>
 
   @if (!formSubmitted()) {
     <div class="contact-form">
       <div class="form-group">
-        <label for="name">{{ 'Contact.Form.Name' | translate }}</label>
+        <label for="name" i18n="@@contact.form.name">Name</label>
         <input
           type="text"
           id="name"
-          [placeholder]="'Contact.Form.NamePlaceholder' | translate"
+          i18n-placeholder="@@contact.form.namePlaceholder"
+          placeholder="Your name"
           [value]="formData().name"
           (input)="updateName($event)"
         />
       </div>
 
       <div class="form-group">
-        <label for="email">{{ 'Contact.Form.Email' | translate }}</label>
+        <label for="email" i18n="@@contact.form.email">Email</label>
         <input
           type="email"
           id="email"
-          [placeholder]="'Contact.Form.EmailPlaceholder' | translate"
+          i18n-placeholder="@@contact.form.emailPlaceholder"
+          placeholder="Your email"
           [value]="formData().email"
           (input)="updateEmail($event)"
         />
       </div>
 
       <div class="form-group">
-        <label for="message">{{ 'Contact.Form.Message' | translate }}</label>
+        <label for="message" i18n="@@contact.form.message">Message</label>
         <textarea
           id="message"
           rows="5"
-          [placeholder]="'Contact.Form.MessagePlaceholder' | translate"
+          i18n-placeholder="@@contact.form.messagePlaceholder"
+          placeholder="Your message"
           [value]="formData().message"
           (input)="updateMessage($event)"
         ></textarea>
       </div>
 
-      <button type="submit" (click)="submitForm()">{{ 'Contact.Form.Submit' | translate }}</button>
+      <button type="submit" (click)="submitForm()" i18n="@@contact.form.submit">
+        Send Message
+      </button>
     </div>
   } @else {
     <div class="success-message">
-      <h2>{{ 'Contact.Success.Title' | translate }}</h2>
-      <p>{{ 'Contact.Success.Message' | translate }}</p>
+      <h2 i18n="@@contact.success.title">Thank you for your message!</h2>
+      <p i18n="@@contact.success.message">We will get back to you soon.</p>
     </div>
   }
 </div>

@@ -37,6 +37,15 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en"
+        // "locales": {
+        //   "ua": {
+        //     "translation": "src/locale/messages.uk.xlf",
+        //     "subPath": "ua"
+        //   }
+        // }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -44,7 +53,7 @@
             "outputPath": "dist/angular-ssr-project",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": ["zone.js", "@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -60,7 +69,7 @@
             ],
             "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/assets"]
+              "includePaths": ["src/assets", "src"]
             },
             "scripts": [],
             "server": "src/main.server.ts",
@@ -79,8 +88,64 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "8kB",
+                  "maximumError": "10kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "build-uk": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/angular-ssr-project-uk",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "polyfills": ["zone.js", "@angular/localize/init"],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
+              }
+            ],
+            "styles": ["src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/assets", "src"]
+            },
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            },
+            "localize": ["uk"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "8kB",
+                  "maximumError": "10kB"
                 }
               ],
               "outputHashing": "all"
@@ -105,14 +170,41 @@
           },
           "defaultConfiguration": "development"
         },
+        "serve:i18n": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "angular-ssr-project:build:production"
+            },
+            "development": {
+              "buildTarget": "angular-ssr-project:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "localize": true
+          }
+        },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "outputPath": "src/locale",
+            "outFile": "messages.xlf"
+          }
         },
         "prerender": {
           "builder": "@angular-devkit/build-angular:prerender",
           "options": {
             "browserTarget": "angular-ssr-project:build:production",
             "serverTarget": "angular-ssr-project:server:production",
+            "routes": ["/", "/contact"]
+          }
+        },
+        "prerender-uk": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "browserTarget": "angular-ssr-project:build-uk:production",
+            "serverTarget": "angular-ssr-project:server-uk:production",
             "routes": ["/", "/contact"]
           }
         },
@@ -135,7 +227,7 @@
             ],
             "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/assets"]
+              "includePaths": ["src/assets", "src"]
             },
             "scripts": []
           }
@@ -147,6 +239,27 @@
             "main": "src/main.server.ts",
             "tsConfig": "tsconfig.server.json",
             "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "sourceMap": false,
+              "optimization": true
+            },
+            "development": {
+              "sourceMap": true,
+              "optimization": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "server-uk": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/angular-ssr-project-uk/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss",
+            "localize": ["uk"]
           },
           "configurations": {
             "production": {

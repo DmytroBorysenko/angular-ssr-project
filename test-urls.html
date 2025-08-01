@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test URLs - English Only</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .test-link {
+        display: block;
+        margin: 10px 0;
+        padding: 10px;
+        background: #f0f0f0;
+        text-decoration: none;
+        color: #333;
+      }
+      .test-link:hover {
+        background: #e0e0e0;
+      }
+      .status {
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+      }
+      .success {
+        background: #d4edda;
+        color: #155724;
+      }
+      .error {
+        background: #f8d7da;
+        color: #721c24;
+      }
+      .info {
+        background: #d1ecf1;
+        color: #0c5460;
+      }
+      .warning {
+        background: #fff3cd;
+        color: #856404;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>✅ Тестування Angular SSR - Тільки англійська мова</h1>
+
+    <div class="status success">
+      <strong>✅ Українська мова закоментована для спрощення розробки</strong>
+    </div>
+
+    <h2>Доступні URL:</h2>
+
+    <h3>Dev Server (порт 4200):</h3>
+    <a href="http://localhost:4200/" class="test-link">Головна сторінка</a>
+    <a href="http://localhost:4200/contact" class="test-link">Контакти</a>
+
+    <h2>Команди для роботи:</h2>
+    <div class="status info">
+      <ul>
+        <li><code>npm start</code> - запуск dev сервера (автоматична перебудова)</li>
+        <li><code>npm run build:i18n</code> - перебудова проекту</li>
+      </ul>
+    </div>
+
+    <h2>Структура проекту:</h2>
+    <ul>
+      <li><strong>Англійська (за замовчуванням)</strong>: `/`, `/contact`</li>
+      <li><strong>Українська</strong>: закоментована (буде додана пізніше)</li>
+    </ul>
+
+    <h2>Що було зроблено:</h2>
+    <div class="status info">
+      <ul>
+        <li>✅ Закоментовано українську локалізацію в angular.json</li>
+        <li>✅ Спрощено build скрипт (без --localize)</li>
+        <li>✅ Оновлено dev сервер для роботи тільки з англійською</li>
+        <li>✅ Спрощено структуру URL</li>
+      </ul>
+    </div>
+
+    <div class="status warning">
+      <strong>⚠️ Важливо:</strong> Для додавання української мови потрібно буде:
+      <ul>
+        <li>Розкоментувати локалізацію в angular.json</li>
+        <li>Оновити build скрипти</li>
+        <li>Оновити dev сервер</li>
+      </ul>
+    </div>
+
+    <h2>Особливості:</h2>
+    <ul>
+      <li>✅ Angular built-in i18n (підготовлено для майбутнього)</li>
+      <li>✅ SSR (Server-Side Rendering)</li>
+      <li>✅ Пререндеринг для кращого SEO</li>
+      <li>✅ Простий запуск: npm start</li>
+      <li>✅ Спрощена структура для розробки</li>
+    </ul>
+
+    <div class="status success">
+      <strong>✅ Тепер просто запустіть: npm start</strong><br />
+      <strong>✅ Проект працює тільки з англійською мовою</strong>
+    </div>
+  </body>
+</html>

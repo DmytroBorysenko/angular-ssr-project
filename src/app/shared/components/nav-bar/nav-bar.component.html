@@ -11,7 +11,29 @@
               [class.active]="isActive(navLink.path)"
               [routerLink]="getLanguageAwareUrl(navLink.path)"
             >
-              {{ navLink.name | translate }}
+              @switch (navLink.name) {
+                @case ('Menu.Work') {
+                  <span i18n="@@menu.work">Work</span>
+                }
+                @case ('Menu.Services') {
+                  <span i18n="@@menu.services">Services</span>
+                }
+                @case ('Menu.Career') {
+                  <span i18n="@@menu.career">Career</span>
+                }
+                @case ('Menu.Blog') {
+                  <span i18n="@@menu.blog">Blog</span>
+                }
+                @case ('Menu.AboutUs') {
+                  <span i18n="@@menu.aboutUs">About us</span>
+                }
+                @case ('Menu.Contact') {
+                  <span i18n="@@menu.contact">Contact</span>
+                }
+                @default {
+                  {{ navLink.name }}
+                }
+              }
             </a>
             @if (navLink.children?.length) {
               <img [class.rotated]="navLink.isOpen" src="./assets/icons/arrow.svg" alt="arrow" />
@@ -30,9 +52,121 @@
                             [src]="'./assets/icons/svg/' + child.icon + '.svg'"
                             alt="icon"
                           />
-                          <span class="child-name">{{ child.name | translate }}</span>
+                          <span class="child-name">
+                            @switch (child.name) {
+                              @case ('Menu.Cases') {
+                                <span i18n="@@menu.cases">Cases</span>
+                              }
+                              @case ('Menu.Industries') {
+                                <span i18n="@@menu.industries">Industries</span>
+                              }
+                              @case ('Menu.Clients') {
+                                <span i18n="@@menu.clients">Clients</span>
+                              }
+                              @case ('Menu.Review') {
+                                <span i18n="@@menu.review">Review</span>
+                              }
+                              @case ('Menu.SEO') {
+                                <span i18n="@@menu.seo">SEO</span>
+                              }
+                              @case ('Menu.PPC') {
+                                <span i18n="@@menu.ppc">PPC</span>
+                              }
+                              @case ('Menu.DisplayAds') {
+                                <span i18n="@@menu.displayAds">Display Ads</span>
+                              }
+                              @case ('Menu.EmailMarketing') {
+                                <span i18n="@@menu.emailMarketing">Email marketing</span>
+                              }
+                              @case ('Menu.WebDev') {
+                                <span i18n="@@menu.webDev">Web Development</span>
+                              }
+                              @case ('Menu.Analytics') {
+                                <span i18n="@@menu.analytics">Web Analytics</span>
+                              }
+                              @case ('Menu.SERM') {
+                                <span i18n="@@menu.serm">SERM</span>
+                              }
+                              @case ('Menu.Strategy') {
+                                <span i18n="@@menu.strategy">Strategy</span>
+                              }
+                              @case ('Menu.SMM') {
+                                <span i18n="@@menu.smm">SMM</span>
+                              }
+                              @case ('Menu.DesignCreative') {
+                                <span i18n="@@menu.designCreative">Design & Creative</span>
+                              }
+                              @default {
+                                {{ child.name }}
+                              }
+                            }
+                          </span>
                         </div>
-                        <div class="desc">{{ child.desc | translate }}</div>
+                        <div class="desc">
+                          @switch (child.desc) {
+                            @case ('Our-Services.short-desc.SEO') {
+                              <span i18n="@@services.shortDesc.seo"
+                                >Drive more traffic with a website that's easy to find and ranks
+                                higher</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.PPC') {
+                              <span i18n="@@services.shortDesc.ppc"
+                                >Get instant leads with ads that attract clicks and maximize
+                                ROI</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.DisplayAds') {
+                              <span i18n="@@services.shortDesc.displayAds"
+                                >Boost brand awareness with eye-catching banners and videos</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.EmailMarketing') {
+                              <span i18n="@@services.shortDesc.emailMarketing"
+                                >Improve customer retention with emails that are worth opening and
+                                reading</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.WebDev') {
+                              <span i18n="@@services.shortDesc.webDev"
+                                >Build fast, SEO-friendly websites that keep users engaged and
+                                converting</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.Analytics') {
+                              <span i18n="@@services.shortDesc.analytics"
+                                >Turn data into growth with reports that reveal what really
+                                works</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.SERM') {
+                              <span i18n="@@services.shortDesc.serm"
+                                >Strengthen your brand's reputation with smart review and search
+                                management</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.Strategy') {
+                              <span i18n="@@services.shortDesc.strategy"
+                                >Get a winning growth plan tailored to your business goals</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.SMM') {
+                              <span i18n="@@services.shortDesc.smm"
+                                >Grow your audience with social media content that sparks
+                                engagement</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.DesignCreative') {
+                              <span i18n="@@services.shortDesc.designCreative"
+                                >Make your brand stand out with visuals that leave a lasting
+                                impact</span
+                              >
+                            }
+                            @default {
+                              {{ child.desc }}
+                            }
+                          }
+                        </div>
                       </div>
                     </li>
                   }
@@ -52,10 +186,26 @@
     <a href="/" class="logo"> .dgtl-house </a>
     <div class="mobile-menu">
       <img src="./assets/icons/svg/burger-menu.svg" alt="burger-menu" (click)="toggleMenu()" />
-      <a [href]="currentUrl()" class="active-link">{{ 'Menu.' + activePage() | translate }}</a>
-      <a [href]="currentUrl() === '/contact' ? '/' : '/contact'" class="link">{{
-        'Menu.' + (activePage() === 'Contact' ? 'Home' : 'Contact') | translate
-      }}</a>
+      <a [href]="currentUrl()" class="active-link">
+        @switch (activePage()) {
+          @case ('Home') {
+            <span i18n="@@menu.home">Home</span>
+          }
+          @case ('Contact') {
+            <span i18n="@@menu.contact">Contact</span>
+          }
+          @default {
+            {{ activePage() }}
+          }
+        }
+      </a>
+      <a [href]="currentUrl() === '/contact' ? '/' : '/contact'" class="link">
+        @if (activePage() === 'Contact') {
+          <span i18n="@@menu.home">Home</span>
+        } @else {
+          <span i18n="@@menu.contact">Contact</span>
+        }
+      </a>
       <div [style.display]="isOpen() ? 'block' : 'none'" class="nav-list">
         <div class="nav-list-header">
           <a href="/" class="logo">.dgtl-house</a>
@@ -67,9 +217,31 @@
           @for (navLink of MENU_LIST; track $index) {
             <li>
               <div class="d-flex">
-                <a class="name" [routerLink]="navLink.path" (click)="toggleMenu()">{{
-                  navLink.name | translate
-                }}</a>
+                <a class="name" [routerLink]="navLink.path" (click)="toggleMenu()">
+                  @switch (navLink.name) {
+                    @case ('Menu.Work') {
+                      <span i18n="@@menu.work">Work</span>
+                    }
+                    @case ('Menu.Services') {
+                      <span i18n="@@menu.services">Services</span>
+                    }
+                    @case ('Menu.Career') {
+                      <span i18n="@@menu.career">Career</span>
+                    }
+                    @case ('Menu.Blog') {
+                      <span i18n="@@menu.blog">Blog</span>
+                    }
+                    @case ('Menu.AboutUs') {
+                      <span i18n="@@menu.aboutUs">About us</span>
+                    }
+                    @case ('Menu.Contact') {
+                      <span i18n="@@menu.contact">Contact</span>
+                    }
+                    @default {
+                      {{ navLink.name }}
+                    }
+                  }
+                </a>
                 @if (navLink.children?.length) {
                   <img
                     [ngClass]="{rotated: navLink.isOpen}"
@@ -90,11 +262,121 @@
                             [src]="'./assets/icons/svg/' + child.icon + '.svg'"
                             alt="icon"
                           />
-                          <a class="child-name" [routerLink]="child.path" (click)="toggleMenu()">{{
-                            child.name | translate
-                          }}</a>
+                          <a class="child-name" [routerLink]="child.path" (click)="toggleMenu()">
+                            @switch (child.name) {
+                              @case ('Menu.Cases') {
+                                <span i18n="@@menu.cases">Cases</span>
+                              }
+                              @case ('Menu.Industries') {
+                                <span i18n="@@menu.industries">Industries</span>
+                              }
+                              @case ('Menu.Clients') {
+                                <span i18n="@@menu.clients">Clients</span>
+                              }
+                              @case ('Menu.Review') {
+                                <span i18n="@@menu.review">Review</span>
+                              }
+                              @case ('Menu.SEO') {
+                                <span i18n="@@menu.seo">SEO</span>
+                              }
+                              @case ('Menu.PPC') {
+                                <span i18n="@@menu.ppc">PPC</span>
+                              }
+                              @case ('Menu.DisplayAds') {
+                                <span i18n="@@menu.displayAds">Display Ads</span>
+                              }
+                              @case ('Menu.EmailMarketing') {
+                                <span i18n="@@menu.emailMarketing">Email marketing</span>
+                              }
+                              @case ('Menu.WebDev') {
+                                <span i18n="@@menu.webDev">Web Development</span>
+                              }
+                              @case ('Menu.Analytics') {
+                                <span i18n="@@menu.analytics">Web Analytics</span>
+                              }
+                              @case ('Menu.SERM') {
+                                <span i18n="@@menu.serm">SERM</span>
+                              }
+                              @case ('Menu.Strategy') {
+                                <span i18n="@@menu.strategy">Strategy</span>
+                              }
+                              @case ('Menu.SMM') {
+                                <span i18n="@@menu.smm">SMM</span>
+                              }
+                              @case ('Menu.DesignCreative') {
+                                <span i18n="@@menu.designCreative">Design & Creative</span>
+                              }
+                              @default {
+                                {{ child.name }}
+                              }
+                            }
+                          </a>
                         </div>
-                        <div class="desc">{{ child.desc | translate }}</div>
+                        <div class="desc">
+                          @switch (child.desc) {
+                            @case ('Our-Services.short-desc.SEO') {
+                              <span i18n="@@services.shortDesc.seo"
+                                >Drive more traffic with a website that's easy to find and ranks
+                                higher</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.PPC') {
+                              <span i18n="@@services.shortDesc.ppc"
+                                >Get instant leads with ads that attract clicks and maximize
+                                ROI</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.DisplayAds') {
+                              <span i18n="@@services.shortDesc.displayAds"
+                                >Boost brand awareness with eye-catching banners and videos</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.EmailMarketing') {
+                              <span i18n="@@services.shortDesc.emailMarketing"
+                                >Improve customer retention with emails that are worth opening and
+                                reading</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.WebDev') {
+                              <span i18n="@@services.shortDesc.webDev"
+                                >Build fast, SEO-friendly websites that keep users engaged and
+                                converting</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.Analytics') {
+                              <span i18n="@@services.shortDesc.analytics"
+                                >Turn data into growth with reports that reveal what really
+                                works</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.SERM') {
+                              <span i18n="@@services.shortDesc.serm"
+                                >Strengthen your brand's reputation with smart review and search
+                                management</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.Strategy') {
+                              <span i18n="@@services.shortDesc.strategy"
+                                >Get a winning growth plan tailored to your business goals</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.SMM') {
+                              <span i18n="@@services.shortDesc.smm"
+                                >Grow your audience with social media content that sparks
+                                engagement</span
+                              >
+                            }
+                            @case ('Our-Services.short-desc.DesignCreative') {
+                              <span i18n="@@services.shortDesc.designCreative"
+                                >Make your brand stand out with visuals that leave a lasting
+                                impact</span
+                              >
+                            }
+                            @default {
+                              {{ child.desc }}
+                            }
+                          }
+                        </div>
                       </div>
                       <a [routerLink]="child.path" (click)="toggleMenu()">
                         <img class="arrow" src="./assets/icons/svg/arrow.svg" alt="arrow" />

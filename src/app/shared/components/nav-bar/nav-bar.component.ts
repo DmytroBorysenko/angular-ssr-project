@@ -1,8 +1,7 @@
 import {NgClass} from '@angular/common';
-import {ChangeDetectionStrategy, Component, inject, signal, effect} from '@angular/core';
+import {ChangeDetectionStrategy, Component, effect, inject, signal} from '@angular/core';
 import {NavigationEnd, Router, RouterModule} from '@angular/router';
 
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {filter, map} from 'rxjs/operators';
 
 import {MENU_ACTIVE_PAGE_MAP, MENU_LIST} from '@shared/entities/constants/menu-list.constants';
@@ -10,7 +9,7 @@ import {MENU_ACTIVE_PAGE_MAP, MENU_LIST} from '@shared/entities/constants/menu-l
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [RouterModule, TranslateModule, NgClass],
+  imports: [RouterModule, NgClass],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,7 +21,6 @@ export class NavBarComponent {
   protected activePage = signal<string>('');
 
   private router = inject(Router);
-  private translate = inject(TranslateService);
 
   constructor() {
     this.router.events
@@ -52,18 +50,9 @@ export class NavBarComponent {
 
   // Метод для генерації URL з урахуванням мови
   protected getLanguageAwareUrl(path: string): string {
-    // const currentLang = this.translate.currentLang;
-
-    // Видаляємо потенційний префікс `/ua` на випадок, якщо path уже має його
+    // Angular built-in i18n handles language prefixes automatically
+    // Англійська за замовчуванням (без префікса), українська з /ua/
     const cleanedPath = path.replace(/^\/?(ua\/)?/, '');
-
-    // Temporarily disabled Ukrainian language logic
-    // // Якщо мова українська, додаємо префікс /ua
-    // if (currentLang === 'uk') {
-    //   return `/ua/${cleanedPath}`;
-    // }
-
-    // Інакше (англійська за замовчуванням)
     return `/${cleanedPath}`;
   }
 
@@ -72,18 +61,10 @@ export class NavBarComponent {
     const currentUrl = this.currentUrl();
     if (!currentUrl) return false;
 
-    // const currentLang = this.translate.currentLang;
-
-    // Очищаємо path від потенційних префіксів
+    // Angular built-in i18n handles language detection automatically
+    // Англійська за замовчуванням (без префікса), українська з /ua/
     const cleanedPath = path.replace(/^\/?(ua\/)?/, '');
-
-    // Temporarily disabled Ukrainian language logic
-    // if (currentLang === 'uk') {
-    //   return currentUrl === `/ua/${cleanedPath}` || currentUrl === `/ua/${cleanedPath}/`;
-    // } else {
-    //   return currentUrl === `/${cleanedPath}` || currentUrl === `/${cleanedPath}/`;
-    // }
-
-    return currentUrl === `/${cleanedPath}` || currentUrl === `/${cleanedPath}/`;
+    const currentPath = currentUrl.replace(/^\/?(ua\/)?/, '');
+    return currentPath === `/${cleanedPath}` || currentPath === `/${cleanedPath}/`;
   }
 }

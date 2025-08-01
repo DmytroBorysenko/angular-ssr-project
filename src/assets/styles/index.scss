@@ -1,8 +1,8 @@
 // Import font stylesheet
-@import 'fonts/OTF/stylesheet.scss';
+@forward 'fonts/OTF/stylesheet.scss';
 
 // Import variables
-@import 'styles/variables';
+@forward 'styles/variables';
 
 // Import functions
-@import 'functions';
+@forward 'styles/functions';
